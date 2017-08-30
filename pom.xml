@@ -33,18 +33,30 @@
         <httpclient.version>4.2.5</httpclient.version>
         <jetty.version>9.2.6.v20141205</jetty.version>
         <grizzly.version>2.3.22</grizzly.version>
+        <cat.version>1.4.0</cat.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
-
-            <!-- javamelody monitor -->
+            <!-- cat -->
             <!--<dependency>-->
-            <!--<groupId>net.bull.javamelody</groupId>-->
-            <!--<artifactId>javamelody-core</artifactId>-->
-            <!--<version>1.58.0</version>-->
+                <!--<groupId>com.dianping.cat</groupId>-->
+                <!--<artifactId>cat-core</artifactId>-->
+                <!--<version>${cat.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>com.dianping.cat</groupId>-->
+                <!--<artifactId>cat-client</artifactId>-->
+                <!--<version>${cat.version}</version>-->
             <!--</dependency>-->
             <!-- slf4j log -->
             <dependency>
@@ -52,26 +64,16 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>jcl-over-slf4j</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>log4j-over-slf4j</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
-            <!--</dependency>-->
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-nop</artifactId>
+                <artifactId>jcl-over-slf4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>slf4j-log4j12</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
             <!-- logback -->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
@@ -79,16 +81,10 @@
                 <version>${logback.version}</version>
             </dependency>
             <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>${logback.version}</version>
+                <groupId>me.moocar</groupId>
+                <artifactId>logback-gelf</artifactId>
+                <version>0.3</version>
             </dependency>
-
-            <!--<dependency>-->
-            <!--<groupId>me.moocar</groupId>-->
-            <!--<artifactId>logback-gelf</artifactId>-->
-            <!--<version>0.3</version>-->
-            <!--</dependency>-->
             <!-- Apache commons -->
             <dependency>
                 <groupId>commons-lang</groupId>
@@ -270,11 +266,11 @@
                 <version>1.2</version>
             </dependency>
             <!-- redis -->
-            <dependency>
-                <groupId>redis.clients</groupId>
-                <artifactId>jedis</artifactId>
-                <version>2.7.3</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>redis.clients</groupId>-->
+                <!--<artifactId>jedis</artifactId>-->
+                <!--<version>2.7.3</version>-->
+            <!--</dependency>-->
             <!-- jersey -->
             <dependency>
                 <groupId>org.glassfish.jersey.core</groupId>
@@ -310,12 +306,6 @@
                 <groupId>org.glassfish.jersey.ext</groupId>
                 <artifactId>jersey-mvc</artifactId>
                 <version>${jersey.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.jersey.ext</groupId>
@@ -381,43 +371,43 @@
                 <version>${querydsl.version}</version>
             </dependency>
             <!-- oltu -->
-            <dependency>
-                <groupId>org.apache.oltu.oauth2</groupId>
-                <artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
-                <version>${oltu.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.oltu.oauth2</groupId>
-                <artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
-                <version>${oltu.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.oltu.oauth2</groupId>
-                <artifactId>org.apache.oltu.oauth2.client</artifactId>
-                <version>${oltu.version}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.apache.oltu.oauth2</groupId>-->
+                <!--<artifactId>org.apache.oltu.oauth2.authzserver</artifactId>-->
+                <!--<version>${oltu.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.oltu.oauth2</groupId>-->
+                <!--<artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>-->
+                <!--<version>${oltu.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.oltu.oauth2</groupId>-->
+                <!--<artifactId>org.apache.oltu.oauth2.client</artifactId>-->
+                <!--<version>${oltu.version}</version>-->
+            <!--</dependency>-->
             <!-- quartz -->
-            <dependency>
-                <groupId>org.quartz-scheduler</groupId>
-                <artifactId>quartz</artifactId>
-                <version>${quartz.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.quartz-scheduler</groupId>
-                <artifactId>quartz-jobs</artifactId>
-                <version>${quartz.version}</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.quartz-scheduler</groupId>-->
+                <!--<artifactId>quartz</artifactId>-->
+                <!--<version>${quartz.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.quartz-scheduler</groupId>-->
+                <!--<artifactId>quartz-jobs</artifactId>-->
+                <!--<version>${quartz.version}</version>-->
+            <!--</dependency>-->
             <!-- velocity -->
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity</artifactId>
-                <version>1.7</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-tools</artifactId>
-                <version>2.0</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.apache.velocity</groupId>-->
+                <!--<artifactId>velocity</artifactId>-->
+                <!--<version>1.7</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.velocity</groupId>-->
+                <!--<artifactId>velocity-tools</artifactId>-->
+                <!--<version>2.0</version>-->
+            <!--</dependency>-->
             <!-- mail -->
             <dependency>
                 <groupId>org.codemonkey.simplejavamail</groupId>
@@ -444,16 +434,7 @@
                 <artifactId>snakeyaml</artifactId>
                 <version>1.17</version>
             </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>1.2.7</version>
-            </dependency>
 
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-            </dependency>
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
@@ -499,4 +480,53 @@
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <xmlOutput>true</xmlOutput>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -40,16 +40,22 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="ccl-common" />
         <module name="ccl-test-demo" />
+      </profile>
+      <profile default="false" name="Annotation profile for ccl-common" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ccl-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ccl-codegen" target="1.8" />
-      <module name="ccl-common" target="1.5" />
+      <module name="ccl-common" target="1.8" />
       <module name="ccl-Jettyserver" target="1.7" />
       <module name="ccl-nettyRpc" target="1.8" />
-      <module name="ccl-raindrop" target="1.5" />
+      <module name="ccl-raindrop" target="1.8" />
       <module name="ccl-test-demo" target="1.5" />
     </bytecodeTargetLevel>
   </component>

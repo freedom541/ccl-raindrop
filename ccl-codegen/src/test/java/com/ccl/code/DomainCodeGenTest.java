@@ -41,7 +41,7 @@ public class DomainCodeGenTest {
             DataSource ds = (DataSource) ctx.getBean("dataSource");
             SimpleMetaDataExporter exporter = new SimpleMetaDataExporter();
             exporter.setBeanPrefix("E");
-            exporter.setPackageName("com.ccl.querydsl.data");
+            exporter.setPackageName("com.datatest");
             exporter.setValidationAnnotations(true);
             exporter.setExportHasManys(true);
 
