@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ccl-Jettyserver/ccl-Jettyserver.iml" filepath="$PROJECT_DIR$/ccl-Jettyserver/ccl-Jettyserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/ccl-codegen/ccl-codegen.iml" filepath="$PROJECT_DIR$/ccl-codegen/ccl-codegen.iml" />
       <module fileurl="file://$PROJECT_DIR$/ccl-common/ccl-common.iml" filepath="$PROJECT_DIR$/ccl-common/ccl-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ccl-nettyRpc/ccl-nettyRpc.iml" filepath="$PROJECT_DIR$/ccl-nettyRpc/ccl-nettyRpc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ccl-jettyserver/ccl-jettyserver.iml" filepath="$PROJECT_DIR$/ccl-jettyserver/ccl-jettyserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ccl-nettyrpc/ccl-nettyrpc.iml" filepath="$PROJECT_DIR$/ccl-nettyrpc/ccl-nettyrpc.iml" />
       <module fileurl="file://$PROJECT_DIR$/ccl-raindrop.iml" filepath="$PROJECT_DIR$/ccl-raindrop.iml" />
       <module fileurl="file://$PROJECT_DIR$/ccl-test-demo/ccl-test-demo.iml" filepath="$PROJECT_DIR$/ccl-test-demo/ccl-test-demo.iml" />
     </modules>

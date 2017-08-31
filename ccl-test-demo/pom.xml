@@ -11,44 +11,17 @@
 
     <artifactId>ccl-test-demo</artifactId>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <maven.test.skip>true</maven.test.skip>
-        <maven.javadoc.skip>true</maven.javadoc.skip>
-        <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
-        <skipTests>true</skipTests>
-        <logback.version>1.1.2</logback.version>
-        <slf4j.version>1.7.6</slf4j.version>
-        <spring.version>4.1.4.RELEASE</spring.version>
-        <quartz.version>2.2.1</quartz.version>
-        <querydsl.version>4.1.4</querydsl.version>
-        <jersey.version>2.17</jersey.version>
-        <jackson.version>2.6.2</jackson.version>
-        <oltu.version>0.31</oltu.version>
-        <httpclient.version>4.2.5</httpclient.version>
-        <jetty.version>9.2.6.v20141205</jetty.version>
-        <grizzly.version>2.3.22</grizzly.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>ccl-raindrop</groupId>
+            <artifactId>ccl-jettyserver</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>ccl-raindrop</groupId>
             <artifactId>ccl-codegen</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>ccl-raindrop</groupId>
-            <artifactId>ccl-Jettyserver</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>ccl-raindrop</groupId>
-            <artifactId>ccl-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -56,17 +29,5 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-        </dependency>
     </dependencies>
 </project>

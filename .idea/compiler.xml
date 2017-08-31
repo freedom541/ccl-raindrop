@@ -35,13 +35,6 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="ccl-test-demo" />
-      </profile>
       <profile default="false" name="Annotation profile for ccl-common" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -49,14 +42,37 @@
         <processorPath useClasspath="true" />
         <module name="ccl-common" />
       </profile>
+      <profile default="false" name="Annotation profile for ccl-jettyserver" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ccl-jettyserver" />
+      </profile>
+      <profile default="false" name="Annotation profile for ccl-nettyrpc" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ccl-nettyrpc" />
+      </profile>
+      <profile default="false" name="Annotation profile for ccl-test-demo" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ccl-test-demo" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ccl-codegen" target="1.8" />
       <module name="ccl-common" target="1.8" />
       <module name="ccl-Jettyserver" target="1.7" />
+      <module name="ccl-jettyserver" target="1.7" />
       <module name="ccl-nettyRpc" target="1.8" />
+      <module name="ccl-nettyrpc" target="1.8" />
       <module name="ccl-raindrop" target="1.8" />
-      <module name="ccl-test-demo" target="1.5" />
+      <module name="ccl-test-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
