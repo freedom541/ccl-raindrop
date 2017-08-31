@@ -1,6 +1,6 @@
 package com.ccl.rain.netty.server;
 
-import com.ccl.rain.annotation.RemotingFace;
+import com.ccl.rain.annotation.RemotingService;
 import com.ccl.rain.netty.codec.RPCDecoder;
 import com.ccl.rain.netty.codec.RPCEncoder;
 import com.ccl.rain.netty.protocol.RPCRequest;
@@ -67,11 +67,11 @@ public class RPCServer implements BeanNameAware, BeanFactoryAware, ApplicationCo
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
         logger.info("setApplicationContext()");
         //扫描含有@RPCService的注解类
-        Map<String, Object> serviceBeanMap = ctx.getBeansWithAnnotation(RemotingFace.class);
+        Map<String, Object> serviceBeanMap = ctx.getBeansWithAnnotation(RemotingService.class);
         if (MapUtils.isNotEmpty(serviceBeanMap)) {
             for (Object serviceBean : serviceBeanMap.values()) {
                 //获取接口名称
-                String interfaceName = serviceBean.getClass().getAnnotation(RemotingFace.class).value().getName();
+                String interfaceName = serviceBean.getClass().getAnnotation(RemotingService.class).value().getName();
                 logger.info("@RemotingFace:" + interfaceName);
                 //在zookeeper上注册该接口服务
                 serviceRegistry.createInterfaceAddressNode(interfaceName, serverAddress);
@@ -113,6 +113,7 @@ public class RPCServer implements BeanNameAware, BeanFactoryAware, ApplicationCo
             ChannelFuture future = bootstrap.bind(host, port).sync();
 
             future.channel().closeFuture().sync();
+            //future.sync();
         } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();

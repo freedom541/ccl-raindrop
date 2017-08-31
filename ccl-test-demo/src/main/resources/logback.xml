@@ -13,10 +13,15 @@
 		</encoder>
 	</appender>
 
-	<logger name="com"/>
+	<logger name="com.ccl"/>
+
+	<logger name="org.apache.zookeeper.ClientCnxn" level="INFO">
+		<appender-ref ref="STDOUT" />
+	</logger>
 
 	<!-- 默认为DEBUG级别 -->
-	<root level="debug">
+	<root level="DEBUG">
 		<appender-ref ref="STDOUT" />
 	</root>
+
 </configuration>

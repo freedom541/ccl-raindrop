@@ -139,10 +139,6 @@
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
     </dependency>
-    <dependency>
-        <groupId>me.moocar</groupId>
-        <artifactId>logback-gelf</artifactId>
-    </dependency>
 
 </dependencies>
 </project>

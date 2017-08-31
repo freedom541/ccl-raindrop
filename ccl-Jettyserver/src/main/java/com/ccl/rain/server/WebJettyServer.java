@@ -58,10 +58,11 @@ public class WebJettyServer {
 
     public void start() throws Exception {
         try {
-            //NettyRpcServer rpcServer = new NettyRpcServer();
-            //rpcServer.start();
             Server server = new Server(port);//1.建立server，设置端口
             //3.请求处理资源
+            if (Objects.isNull(config)){
+                config = new ApplicationConfig();
+            }
             ServletHolder sh = new ServletHolder(new ServletContainer(config));
 
             ServletContextHandler servletContext = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -109,16 +110,23 @@ public class WebJettyServer {
             logger.info("ContextPath: " + webAppContext.getContextPath());
             logger.info("Descriptor: " + webAppContext.getDescriptor());
             logger.info("DefaultsDescriptor: " + webAppContext.getDefaultsDescriptor());
-            logger.info("--------ResourceBase: " + webAppContext.getResourceBase());
+            logger.info("ResourceBase: " + webAppContext.getResourceBase());
             logger.info("BaseResource: " + webAppContext.getBaseResource());
             logger.info("WelcomFiles: " + webAppContext.getWelcomeFiles());
             logger.info("servletContext ContextPath: " + servletContext.getContextPath());
 
             server.start();
+            logger.info("jetty server is start...........................");
+
+            NettyRpcServer rpcServer = new NettyRpcServer();
+            rpcServer.start();
+            logger.info("netty rpc server is start...........................");
+
             server.join();
 
         } catch (Exception e) {
-
+            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

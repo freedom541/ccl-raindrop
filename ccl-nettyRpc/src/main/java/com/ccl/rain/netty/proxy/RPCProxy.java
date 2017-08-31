@@ -43,8 +43,7 @@ public class RPCProxy<T> implements InvocationHandler {
         logger.info("invoke class: {} method: {}", method.getDeclaringClass().getName(), method.getName());
         RPCClientHandler handler = ConnectManage.getInstance().chooseHandler(method.getDeclaringClass().getName());
         if(handler==null){
-            logger.error("NoSuchServiceException:",
-                    new NoSuchServiceException("no such service about"+method.getDeclaringClass().getName()));
+            logger.error("NoSuchServiceException:",new NoSuchServiceException("no such service about "+method.getDeclaringClass().getName()));
             return null;
         }
         RPCFuture RPCFuture = handler.sendRequestBySync(request);

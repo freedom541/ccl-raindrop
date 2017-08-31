@@ -14,7 +14,7 @@ import java.util.Properties;
 public class Config {
 
     public static final int ZK_SESSION_TIMEOUT = 5000;
-    public static final String ZK_ROOT_PATH = "/HRPC";
+    public static final String ZK_ROOT_PATH = "/RainDrop";
 
     private static Properties properties;
 
