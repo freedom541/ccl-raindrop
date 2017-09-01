@@ -6,7 +6,10 @@ import org.slf4j.MarkerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public abstract class AbstractBaseService implements Service {
 
     protected final Logger sysLogger = LoggerFactory.getLogger(this.getClass());

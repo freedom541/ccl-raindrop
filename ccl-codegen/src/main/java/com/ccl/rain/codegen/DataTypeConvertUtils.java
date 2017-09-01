@@ -13,7 +13,7 @@ import java.util.Date;
  * 數據類型轉換方便類
  *
  * @author ccl
- * @date 2016/1/29.
+ * @date 2017/8/29.
  */
 public class DataTypeConvertUtils {
     static {

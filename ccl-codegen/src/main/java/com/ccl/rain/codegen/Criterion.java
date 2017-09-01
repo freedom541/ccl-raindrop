@@ -2,7 +2,7 @@ package com.ccl.rain.codegen;
 
 /**
  * @author ccl
- * @date 2016/5/19.
+ * @date 2017/8/19.
  */
 public abstract class Criterion {
 

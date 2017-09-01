@@ -16,7 +16,10 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.*;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public class SimpleDaoImplSerializer implements Serializer {
 
     private final String javadocSuffix;

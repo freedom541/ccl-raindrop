@@ -4,7 +4,7 @@ import java.lang.annotation.*;
 
 /**
  * @author ccl
- * @date 2016/6/17.
+ * @date 2017/8/27.
  */
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)

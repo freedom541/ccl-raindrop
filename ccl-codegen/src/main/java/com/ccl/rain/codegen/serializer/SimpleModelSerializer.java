@@ -15,7 +15,10 @@ import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.*;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public class SimpleModelSerializer implements Serializer {
 
     private static final Function<Property, Parameter> propertyToParameter = new Function<Property, Parameter>() {

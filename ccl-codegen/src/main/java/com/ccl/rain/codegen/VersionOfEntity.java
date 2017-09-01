@@ -4,7 +4,7 @@ package com.ccl.rain.codegen;
  * 帶版本號的實例，用於乐观锁的實現
  *
  * @author ccl
- * @date 2016/8/19.
+ * @date 2017/8/27.
  */
 public interface VersionOfEntity {
     /**

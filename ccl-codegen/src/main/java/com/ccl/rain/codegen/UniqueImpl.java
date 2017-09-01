@@ -4,7 +4,7 @@ import java.lang.annotation.Annotation;
 
 /**
  * @author ccl
- * @date 2015/9/28.
+ * @date 2017/8/27.
  */
 public class UniqueImpl implements Unique {
     private final String[] value;

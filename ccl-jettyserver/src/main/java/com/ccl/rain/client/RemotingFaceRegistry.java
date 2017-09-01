@@ -2,7 +2,7 @@ package com.ccl.rain.client;
 
 import com.ccl.rain.annotation.RemotingFace;
 import com.ccl.rain.netty.client.RPCClient;
-import com.ccl.rain.netty.utils.myspring.ClassScanner;
+import com.ccl.rain.netty.utils.classscan.ClassScanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;

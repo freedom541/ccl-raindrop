@@ -12,7 +12,7 @@ import java.util.Objects;
 import static java.util.Objects.nonNull;
 
 /**
- * Created by ccl on 2015/8/10.
+ * Created by ccl on 2017/8/27.
  */
 @Label("搜索条件")
 public final class Filter implements Serializable {

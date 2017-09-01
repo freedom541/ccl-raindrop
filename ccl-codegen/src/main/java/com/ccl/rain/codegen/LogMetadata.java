@@ -3,7 +3,7 @@ package com.ccl.rain.codegen;
 import java.util.List;
 
 /**
- * Created by ccl on 2015/7/20.
+ * Created by ccl on 2017/8/27.
  * <p>
  * 日志元数据
  */

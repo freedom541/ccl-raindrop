@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Created by ccl on 2015/8/2.
+ * Created by ccl on 2017/8/27.
  */
 public class RequestHeaderContext {
     public static final String REQUEST_ID = "requestId";

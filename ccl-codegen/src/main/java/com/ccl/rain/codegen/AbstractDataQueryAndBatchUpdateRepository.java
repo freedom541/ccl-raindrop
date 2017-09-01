@@ -17,7 +17,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by ccl on 2015/9/17.
+ * @author ccl
+ * @date 2017/8/29.
  */
 public abstract class AbstractDataQueryAndBatchUpdateRepository<Entity extends IdEntity<ID>, ID extends Serializable> extends AbstractDataUpdateRepository<Entity, ID>
         implements DataQueryAndBatchUpdateRepository<Entity, ID> {

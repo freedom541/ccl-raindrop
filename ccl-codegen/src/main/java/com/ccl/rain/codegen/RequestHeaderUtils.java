@@ -3,7 +3,7 @@ package com.ccl.rain.codegen;
 import java.util.Map;
 
 /**
- * Created by ccl on 2015/8/2.
+ * Created by ccl on 2017/8/27.
  */
 public final class RequestHeaderUtils {
 

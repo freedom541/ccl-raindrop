@@ -4,7 +4,10 @@ import org.springframework.validation.annotation.Validated;
 
 import java.io.Serializable;
 import java.util.List;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public abstract class AbstractCrudModelActionFactory<Repository extends ModelQueryAndBatchUpdateRepository<Model, Entity, ID>, Model extends DataModel<Entity, ID>, Entity extends IdEntity<ID>, ID extends Serializable>
         extends AbstractActionFactory implements CrudModelActionFactory<Model, Entity, ID> {
 

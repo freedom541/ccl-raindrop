@@ -15,7 +15,7 @@ import java.util.Set;
 
 /**
  * @author ccl
- * @date 2015/9/30.
+ * @date 2017/8/29.
  */
 public abstract class AbstractCachedQueryDslRepository<Entity extends IdEntity<ID>, ID extends Serializable>
         extends AbstractMultiTableQueryDslRepository<Entity, ID> {

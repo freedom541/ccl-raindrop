@@ -24,7 +24,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 @Transactional(rollbackFor = RuntimeException.class)
 public abstract class AbstractQueryDslRepository<Entity extends IdEntity<ID>, ID extends Serializable>
         extends AbstractInitialRepository<Entity, ID> implements

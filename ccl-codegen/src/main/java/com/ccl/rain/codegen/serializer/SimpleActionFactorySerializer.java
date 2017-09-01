@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.*;
 
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public class SimpleActionFactorySerializer implements Serializer {
     private static final Function<Type, Parameter> propertyToParameter = new Function<Type, Parameter>() {
         @Override

@@ -14,7 +14,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 /**
- * Created by ccl on 2015/8/6.
+ * Created by ccl on 2017/8/27.
  * <p>
  * 国际化支持。默认资源文件放在类根路径下的i18n目录下，资源文件命名为messages
  */

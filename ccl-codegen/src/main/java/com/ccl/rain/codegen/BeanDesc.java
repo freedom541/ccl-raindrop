@@ -5,7 +5,10 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.*;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public class BeanDesc {
 
 	private final Class<?> beanClass;

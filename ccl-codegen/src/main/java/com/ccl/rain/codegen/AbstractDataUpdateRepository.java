@@ -5,7 +5,10 @@ import com.querydsl.core.BooleanBuilder;
 import javax.sql.DataSource;
 import java.io.Serializable;
 import java.util.Collection;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public abstract class AbstractDataUpdateRepository<Entity extends IdEntity<ID>, ID extends Serializable>
         extends AbstractCachedQueryDslRepository<Entity, ID> implements
         DataUpdateRepository<Entity, ID> {

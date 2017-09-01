@@ -20,7 +20,8 @@ import java.lang.reflect.Modifier;
 import java.util.*;
 
 /**
- * Created by ccl on 2015/9/18.
+ * @author ccl
+ * @date 2017/8/29.
  */
 public abstract class AbstractModelQueryAndBatchUpdateRepository<Entity extends IdEntity<ID>, ID extends Serializable, Model extends DataModel<Entity, ID>>
         extends AbstractModelUpdateRepository<Entity, ID, Model> implements ModelQueryAndBatchUpdateRepository<Model, Entity, ID> {

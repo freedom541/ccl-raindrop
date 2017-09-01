@@ -12,7 +12,10 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.math.BigDecimal;
 import java.util.*;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public class SimpleBeanSerializer implements Serializer {
 
     private final boolean propertyAnnotations;

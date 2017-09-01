@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * User: ccl.lu Date: 13-9-6 Time: 下午5:15
+ * User: ccl 2017/8/27.
  */
 @Label("排序")
 public class Sort extends AbstractList<Sort.Order> implements Serializable {

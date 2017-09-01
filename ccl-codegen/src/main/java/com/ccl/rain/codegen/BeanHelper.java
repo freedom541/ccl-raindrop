@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * @author ccl
- * @date 2016/1/14.
+ * @date 2017/8/29.
  */
 public class BeanHelper {
     /**

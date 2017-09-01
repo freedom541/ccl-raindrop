@@ -4,7 +4,7 @@ import com.ccl.rain.annotation.RemotingFace;
 import com.ccl.rain.face.Test1Face;
 import com.ccl.rain.greel.service.HelloService;
 import com.ccl.rain.netty.client.RPCClient;
-import com.ccl.rain.netty.utils.myspring.AnnotationScan;
+import com.ccl.rain.netty.utils.classscan.AnnotationScan;
 
 import java.util.Set;
 

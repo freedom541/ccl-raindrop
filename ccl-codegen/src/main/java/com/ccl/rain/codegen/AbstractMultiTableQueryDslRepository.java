@@ -14,7 +14,10 @@ import javax.sql.DataSource;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author ccl
+ * @date 2017/8/29.
+ */
 public abstract class AbstractMultiTableQueryDslRepository<Entity extends IdEntity<ID>, ID extends Serializable>
         extends AbstractQueryDslRepository<Entity, ID> implements
         MutiTableQueryDslRepository<Entity, ID> {

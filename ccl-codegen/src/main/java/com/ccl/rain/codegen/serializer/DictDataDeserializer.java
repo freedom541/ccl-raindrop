@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
 
 /**
  * @author ccl
- * @date 2016/1/29.
+ * @date 2017/8/29.
  */
 public class DictDataDeserializer<T extends DictData> extends JsonDeserializer<T> {
 

@@ -2,7 +2,7 @@ package com.ccl.rain.codegen;
 
 /**
  * @author ccl
- * @date 2016/11/2.
+ * @date 2017/8/27.
  */
 public interface LogStorageService {
     /**

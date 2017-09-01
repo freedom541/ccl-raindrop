@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author ccl
- * @date 2016/1/28.
+ * @date 2017/8/27.
  */
 public class DictType {
     private String name;

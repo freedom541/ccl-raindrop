@@ -3,7 +3,7 @@ package com.ccl.rain.codegen;
 import org.joda.time.DateTime;
 
 /**
- * Created by Dean on 2015/7/3.
+ * Created by ccl on 2017/8/27.
  * <p/>
  * 包括统计字段的实体
  */
