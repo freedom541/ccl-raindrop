@@ -1,5 +1,6 @@
 package com.ccl.rain.server;
 
+import com.ccl.rain.client.RemotingFaceRegistry;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -33,9 +34,9 @@ public class WebJettyServer {
     private int port = 8080;
     private ResourceConfig config;
     private String apiPath = "/rest";
-    private String webAppDir = "ccl-Jettyserver/src/main/webapp";
+    private String webAppDir = "ccl-jettyserver/src/main/webapp";
     //private String zookeeperAddr = "127.0.0.1:2181";
-    //private String rpcAddr = "127.0.0.1:9101";
+    private String rpcAddr = "127.0.0.1:2888";
 
     public WebJettyServer() {
     }
@@ -56,8 +57,19 @@ public class WebJettyServer {
         this.config = config;
     }
 
+    public WebJettyServer(int port, ResourceConfig config, String rpcAddr) {
+        this.port = port;
+        this.config = config;
+        this.rpcAddr = rpcAddr;
+    }
+
     public void start() throws Exception {
         try {
+            AnnotationConfigWebApplicationContext springContext = new AnnotationConfigWebApplicationContext();
+            springContext.register(SpringRootConfiguration.class);
+            springContext.setAllowCircularReferences(true);
+            springContext.addBeanFactoryPostProcessor(new RemotingFaceRegistry());
+
             Server server = new Server(port);//1.建立server，设置端口
             //3.请求处理资源
             if (Objects.isNull(config)){
@@ -68,10 +80,10 @@ public class WebJettyServer {
             ServletContextHandler servletContext = new ServletContextHandler(ServletContextHandler.SESSIONS);
             servletContext.setContextPath(apiPath);
             servletContext.addServlet(sh,"/*");
-            servletContext.addEventListener(new ContextLoaderListener());
+            servletContext.addEventListener(new ContextLoaderListener(springContext));
             servletContext.addEventListener(new RequestContextListener());
-            servletContext.setInitParameter("contextClass", AnnotationConfigWebApplicationContext.class.getName());
-            servletContext.setInitParameter("contextConfigLocation", SpringRootConfiguration.class.getName());
+            //servletContext.setInitParameter("contextClass", AnnotationConfigWebApplicationContext.class.getName());
+            //servletContext.setInitParameter("contextConfigLocation", SpringRootConfiguration.class.getName());
 
             //添加乱码过滤
             FilterHolder filterHolder = new FilterHolder(new CharacterEncodingFilter());
@@ -118,11 +130,11 @@ public class WebJettyServer {
             server.start();
             logger.info("jetty server is start...........................");
 
-            NettyRpcServer rpcServer = new NettyRpcServer();
+            NettyRpcServer rpcServer = new NettyRpcServer(rpcAddr);
             rpcServer.start();
-            logger.info("netty rpc server is start...........................");
+            //logger.info("netty rpc server is start...........................");
 
-            server.join();
+            //server.join();
 
         } catch (Exception e) {
             e.printStackTrace();

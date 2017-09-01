@@ -1,6 +1,7 @@
 package com.ccl.client;
 
 import com.ccl.rain.annotation.RemotingFace;
+import com.ccl.rain.face.Test1Face;
 import com.ccl.rain.greel.service.HelloService;
 import com.ccl.rain.netty.client.RPCClient;
 import com.ccl.rain.netty.utils.myspring.AnnotationScan;
@@ -19,6 +20,8 @@ public class StartClient {
         RPCClient rpcClient = new RPCClient("127.0.0.1:2181", classes);
         HelloService service = rpcClient.createProxy(HelloService.class);
         System.out.println("result:" + service.say());
+        Test1Face face = rpcClient.createProxy(Test1Face.class);
+        System.out.println("result2: " + face.hello("nijiafdjf"));
         rpcClient.stop();
     }
 

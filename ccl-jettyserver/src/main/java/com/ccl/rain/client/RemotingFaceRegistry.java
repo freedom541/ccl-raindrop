@@ -2,7 +2,7 @@ package com.ccl.rain.client;
 
 import com.ccl.rain.annotation.RemotingFace;
 import com.ccl.rain.netty.client.RPCClient;
-import com.ccl.rain.netty.utils.myspring.AnnotationScan;
+import com.ccl.rain.netty.utils.myspring.ClassScanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -26,14 +26,20 @@ public class RemotingFaceRegistry implements BeanDefinitionRegistryPostProcessor
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         logger.info("postProcessBeanFactory();");
-        Set<Class<?>> remoteServiceTypes = AnnotationScan.scanClasspath("com.ccl", RemotingFace.class);
-        rpcClient = new RPCClient("127.0.0.1:2181", remoteServiceTypes);
-        for (Class<?> remoteService : remoteServiceTypes) {
+        //Set<Class<?>> remoteServiceTypes = AnnotationScan.scanClasspath("com.ccl", RemotingFace.class);
+        ClassScanner scanner = new ClassScanner();
+        Set<Class<?>> remotingfacetypes = scanner.scan(new String[] {"com.ccl"}, RemotingFace.class);
+
+        rpcClient = new RPCClient("127.0.0.1:2181", remotingfacetypes);
+        for (Class<?> remoteService : remotingfacetypes) {
             if (remoteService.isInterface() && !containsBean(beanFactory, remoteService)) {
                 String beanName = getBeanName(remoteService.getSimpleName());
                 Object instance = getRemoteServiceInstance(remoteService);
+                if (instance == null){
+                    throw new RuntimeException(remoteService.getName() + " not found.");
+                }
                 beanFactory.registerSingleton(beanName, instance);
-                logger.info("registy class : " + remoteService.getName());
+                logger.info("**************registy class : " + remoteService.getName());
             }
         }
     }
@@ -53,7 +59,7 @@ public class RemotingFaceRegistry implements BeanDefinitionRegistryPostProcessor
         return Character.toLowerCase(remoteService.charAt(0)) + remoteService.substring(1);
     }
 
-    //实现远程接口
+    //使用cglib实现远程接口
     private Object getRemoteServiceInstance(Class remoteServiceClass) {
         return rpcClient.createProxy(remoteServiceClass);
     }

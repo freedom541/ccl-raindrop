@@ -18,6 +18,10 @@ public class NettyRpcServer {
         this.rpcAddr = rpcAddr;
     }
 
+    public NettyRpcServer(String rpcAddr) {
+        this.rpcAddr = rpcAddr;
+    }
+
     public NettyRpcServer() {
     }
 

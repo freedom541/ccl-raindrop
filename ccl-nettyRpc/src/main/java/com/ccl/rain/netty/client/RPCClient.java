@@ -34,11 +34,7 @@ public class RPCClient {
      */
     public static <T> T createProxy(Class<T> interfaceClass) {
         // 创建动态代理对象
-        return (T) Proxy.newProxyInstance(
-                interfaceClass.getClassLoader(),
-                new Class<?>[]{interfaceClass},
-                new RPCProxy<T>(interfaceClass)
-        );
+        return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(),new Class<?>[]{interfaceClass},new RPCProxy<T>(interfaceClass));
     }
     /**
      * 创建用于异步调用的代理对象

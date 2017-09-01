@@ -68,7 +68,7 @@
       <module name="ccl-codegen" target="1.8" />
       <module name="ccl-common" target="1.8" />
       <module name="ccl-Jettyserver" target="1.7" />
-      <module name="ccl-jettyserver" target="1.7" />
+      <module name="ccl-jettyserver" target="1.8" />
       <module name="ccl-nettyRpc" target="1.8" />
       <module name="ccl-nettyrpc" target="1.8" />
       <module name="ccl-raindrop" target="1.8" />
