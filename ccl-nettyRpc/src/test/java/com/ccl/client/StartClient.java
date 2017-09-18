@@ -2,7 +2,7 @@ package com.ccl.client;
 
 import com.ccl.rain.annotation.RemotingFace;
 import com.ccl.rain.netty.client.RPCClient;
-import com.ccl.rain.netty.utils.myspring.AnnotationScan;
+import com.ccl.rain.netty.utils.classscan.AnnotationScan;
 import com.ccl.rain.greel.service.*;
 
 import java.util.Set;

@@ -1,0 +1,7 @@
+database:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://db.cloudcare.com:3306/cbis_cloud_adapter?zeroDateTimeBehavior=convertToNull
+  username: cbis
+  password: "zy#CBIS@2"
+  maxIdle: 5
+  maxActive: 100

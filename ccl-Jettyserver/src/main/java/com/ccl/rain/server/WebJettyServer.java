@@ -1,6 +1,7 @@
 package com.ccl.rain.server;
 
 import com.ccl.rain.client.RemotingFaceRegistry;
+import com.ccl.rain.cluster.AliveKeeping;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -128,7 +129,8 @@ public class WebJettyServer {
             logger.info("servletContext ContextPath: " + servletContext.getContextPath());
 
             server.start();
-            logger.info("jetty server is start...........................");
+            logger.info("jetty server is start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            AliveKeeping.start();
 
             NettyRpcServer rpcServer = new NettyRpcServer(rpcAddr);
             rpcServer.start();

@@ -60,12 +60,12 @@ public class RPCServer implements BeanNameAware, BeanFactoryAware, ApplicationCo
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        logger.info("setBeanFactory()");
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setBeanFactory()");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
-        logger.info("setApplicationContext()");
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setApplicationContext()");
         //扫描含有@RPCService的注解类
         Map<String, Object> serviceBeanMap = ctx.getBeansWithAnnotation(RemotingService.class);
         if (MapUtils.isNotEmpty(serviceBeanMap)) {
@@ -85,7 +85,7 @@ public class RPCServer implements BeanNameAware, BeanFactoryAware, ApplicationCo
     //在实例被创建时执行，后续及是init-method
     //创建netty服务
     public void afterPropertiesSet() throws Exception {
-        logger.info("afterPropertiesSet()");
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>afterPropertiesSet()");
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {

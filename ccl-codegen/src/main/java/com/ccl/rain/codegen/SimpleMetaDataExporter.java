@@ -748,7 +748,7 @@ public class SimpleMetaDataExporter {
 
         serialize(classModel, modelClassModel);
 
-        logger.info("Exported " + tableName + " successfully");
+        logger.info("Exported   {" + tableName + "}   successfully");
     }
 
     private String normalize(String str) {

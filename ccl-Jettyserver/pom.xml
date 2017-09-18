@@ -91,10 +91,6 @@
             <artifactId>jetty-webapp</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>

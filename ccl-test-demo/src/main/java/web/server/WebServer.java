@@ -7,7 +7,7 @@ import com.ccl.rain.server.WebJettyServer;
  */
 public class WebServer {
     public static void main(String[] args) throws Exception {
-        WebJettyServer server = new WebJettyServer(null);
+        WebJettyServer server = new WebJettyServer(new ApplicationConfig());
         server.start();
     }
 }

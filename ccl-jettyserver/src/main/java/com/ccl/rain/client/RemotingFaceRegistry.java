@@ -20,12 +20,12 @@ public class RemotingFaceRegistry implements BeanDefinitionRegistryPostProcessor
     private RPCClient rpcClient;
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-        logger.info("postProcessBeanDefinitionRegistry();");
+        logger.info("**********************postProcessBeanDefinitionRegistry();");
     }
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        logger.info("postProcessBeanFactory();");
+        logger.info("**********************postProcessBeanFactory();");
         //Set<Class<?>> remoteServiceTypes = AnnotationScan.scanClasspath("com.ccl", RemotingFace.class);
         ClassScanner scanner = new ClassScanner();
         Set<Class<?>> remotingfacetypes = scanner.scan(new String[] {"com.ccl"}, RemotingFace.class);
@@ -39,7 +39,7 @@ public class RemotingFaceRegistry implements BeanDefinitionRegistryPostProcessor
                     throw new RuntimeException(remoteService.getName() + " not found.");
                 }
                 beanFactory.registerSingleton(beanName, instance);
-                logger.info("**************registy class : " + remoteService.getName());
+                logger.info("**********************  registy class : " + remoteService.getName());
             }
         }
     }

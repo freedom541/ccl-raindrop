@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/${project.build.directory}/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/${project.build.directory}/test-classes" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -60,6 +63,8 @@
     <orderEntry type="library" name="Maven: org.slf4j:log4j-over-slf4j:1.7.6" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.17" level="project" />
+    <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:2.4.5" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.17" level="project" />
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-common:2.17" level="project" />
@@ -107,7 +112,6 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.2.6.v20141205" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-webapp:9.2.6.v20141205" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-xml:9.2.6.v20141205" level="project" />
-    <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:2.4.5" level="project" />
     <orderEntry type="module" module-name="ccl-codegen" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.2.2.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.2.1.Final" level="project" />
