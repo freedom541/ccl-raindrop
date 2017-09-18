@@ -747,8 +747,12 @@ public class SimpleMetaDataExporter {
         modelClassModel.addAnnotation(label);
 
         serialize(classModel, modelClassModel);
-
-        logger.info("Exported   {" + tableName + "}   successfully");
+        int l = tableName.length();
+        StringBuffer sb = new StringBuffer("}.");
+        for (int i = 0; i< 60-l; i++){
+            sb.append(".");
+        }
+        logger.info("Exported   {" + tableName + sb.toString() + "successfully");
     }
 
     private String normalize(String str) {
