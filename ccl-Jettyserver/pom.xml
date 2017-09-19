@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>ccl-raindrop</artifactId>
-        <groupId>ccl-raindrop</groupId>
+        <artifactId>ccl.raindrop</artifactId>
+        <groupId>ccl.raindrop</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,18 +13,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>ccl-raindrop</groupId>
+            <groupId>ccl.raindrop</groupId>
             <artifactId>ccl-nettyrpc</artifactId>
             <version>1.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
-                    <groupId>ccl-raindrop</groupId>
+                    <groupId>ccl.raindrop</groupId>
                     <artifactId>ccl-common</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>ccl-raindrop</groupId>
+            <groupId>ccl.raindrop</groupId>
             <artifactId>ccl-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

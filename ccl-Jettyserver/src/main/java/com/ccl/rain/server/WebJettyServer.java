@@ -10,6 +10,7 @@ import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
+import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
@@ -68,6 +69,7 @@ public class WebJettyServer {
         try {
             AnnotationConfigWebApplicationContext springContext = new AnnotationConfigWebApplicationContext();
             springContext.register(SpringRootConfiguration.class);
+            springContext.register(LoggingFilter.class);
             springContext.setAllowCircularReferences(true);
             springContext.addBeanFactoryPostProcessor(new RemotingFaceRegistry());
 
