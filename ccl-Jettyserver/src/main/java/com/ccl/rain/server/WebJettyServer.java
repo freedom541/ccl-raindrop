@@ -2,6 +2,7 @@ package com.ccl.rain.server;
 
 import com.ccl.rain.client.RemotingFaceRegistry;
 import com.ccl.rain.cluster.AliveKeeping;
+import com.ccl.rain.common.Configs;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -32,12 +33,11 @@ import java.util.Objects;
  */
 public class WebJettyServer {
     private static final Logger logger = LoggerFactory.getLogger(WebJettyServer.class);
-    private int port = 8080;
+    private int port = Configs.getInt("worker.server.port");
     private ResourceConfig config;
     private String apiPath = "/rest";
-    private String webAppDir = "ccl-jettyserver/src/main/webapp";
-    //private String zookeeperAddr = "127.0.0.1:2181";
-    private String rpcAddr = "127.0.0.1:2888";
+    private String webAppDir = Configs.getString("worker.server.webContext");
+    private String rpcAddr = Configs.getString("worker.rpcServer.host");
 
     public WebJettyServer() {
     }
@@ -120,16 +120,9 @@ public class WebJettyServer {
 
             server.setHandler(contexts);//6.server添加上下文
 
-            logger.info("ContextPath: " + webAppContext.getContextPath());
-            logger.info("Descriptor: " + webAppContext.getDescriptor());
-            logger.info("DefaultsDescriptor: " + webAppContext.getDefaultsDescriptor());
-            logger.info("ResourceBase: " + webAppContext.getResourceBase());
-            logger.info("BaseResource: " + webAppContext.getBaseResource());
-            logger.info("WelcomFiles: " + webAppContext.getWelcomeFiles());
-            logger.info("servletContext ContextPath: " + servletContext.getContextPath());
-
             server.start();
-            logger.info("jetty server is start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            logger.info("jetty server is start ================================================================");
+            logger.info("jetty server is start ================================================================");
             AliveKeeping.start();
 
             NettyRpcServer rpcServer = new NettyRpcServer(rpcAddr);

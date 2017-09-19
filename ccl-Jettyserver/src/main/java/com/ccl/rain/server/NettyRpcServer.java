@@ -1,5 +1,6 @@
 package com.ccl.rain.server;
 
+import com.ccl.rain.common.Configs;
 import com.ccl.rain.netty.server.RPCServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,8 +11,8 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
  */
 public class NettyRpcServer {
     private static final Logger logger = LoggerFactory.getLogger(NettyRpcServer.class);
-    private String zookeeperAddr = "127.0.0.1:2181";
-    private String rpcAddr = "127.0.0.1:2888";
+    private String zookeeperAddr = Configs.getString("zookeeper.server.host");
+    private String rpcAddr = Configs.getString("worker.rpcServer.host");
 
     public NettyRpcServer(String zookeeperAddr, String rpcAddr) {
         this.zookeeperAddr = zookeeperAddr;

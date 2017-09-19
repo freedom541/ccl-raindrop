@@ -55,7 +55,7 @@ public class RPCServer implements BeanNameAware, BeanFactoryAware, ApplicationCo
 
     @Override
     public void setBeanName(String s) {
-        logger.info("setBeanName() {}", s);
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setBeanName() {}", s);
     }
 
     @Override

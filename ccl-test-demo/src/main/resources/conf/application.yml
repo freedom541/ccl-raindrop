@@ -1,7 +1,19 @@
+worker:
+  name: raindrop
+  server:
+    port: 8081
+    webContext: ccl-jettyserver/src/main/webapp
+  rpcServer:
+    host: 127.0.0.1:3888
+
 database:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://db.cloudcare.com:3306/cbis_cloud_adapter?zeroDateTimeBehavior=convertToNull
-  username: cbis
-  password: "zy#CBIS@2"
+  url: jdbc:mysql://localhost:3306/test?zeroDateTimeBehavior=convertToNull
+  username: root
+  password: "123456"
   maxIdle: 5
   maxActive: 100
+
+zookeeper:
+  server:
+    host: 127.0.0.1:2181

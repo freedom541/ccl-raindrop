@@ -60,7 +60,7 @@ public class ServiceRegistry {
             if (s == null) {
                 //创建持久化目录节点，这个目录节点存储的数据不会丢失
                 String path = zooKeeper.create(Config.ZK_ROOT_PATH, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-                logger.info("create zookeeper root node (path:{})", path);
+                logger.info("##########create zookeeper root node (path:{})", path);
             }
         } catch (KeeperException e) {
             logger.error(e.toString());
@@ -77,7 +77,7 @@ public class ServiceRegistry {
     private void createInterfaceNode(String interfaceName) {
         try {
             String path = zooKeeper.create(Config.ZK_ROOT_PATH + "/" + interfaceName, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-            logger.info("create zookeeper interface node (path:{})", path);
+            logger.info("##########create zookeeper interface node (path:{})", path);
         } catch (KeeperException e) {
             logger.error("", e);
         } catch (InterruptedException ex) {
