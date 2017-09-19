@@ -28,7 +28,7 @@ public class AliveKeeping {
                 @Override
                 public void run() {
                     if (LOGGER.isDebugEnabled()) {
-                        LOGGER.debug("I'm alive");
+                        LOGGER.debug("LOGGERLOGGERLOGGERLOGGER- I'm alive");
                     }
                 }
             }, 1000 * 60 * 10, 1000 * 60 * 10);

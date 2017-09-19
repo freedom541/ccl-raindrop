@@ -18,19 +18,19 @@ public abstract class AbstractBaseService implements Service {
 
     @PostConstruct
     public void startService() {
-        sysLogger.debug(MarkerFactory.getMarker(LogMarker.CONTAINER), getClass().getSimpleName() + " starting...");
+        sysLogger.debug(MarkerFactory.getMarker(LogMarker.CONTAINER), getClass().getSimpleName() + " <>starting...");
         init();
         if (this instanceof LogStorageService) {
             BizLog.addLogStorageService((LogStorageService) this);
         }
-        sysLogger.debug(MarkerFactory.getMarker(LogMarker.CONTAINER), getClass().getSimpleName() + " start success.");
+        sysLogger.debug(MarkerFactory.getMarker(LogMarker.CONTAINER), getClass().getSimpleName() + " <>start success.");
     }
 
     @PreDestroy
     public void stopService() {
-        sysLogger.debug(MarkerFactory.getMarker(LogMarker.CONTAINER), getClass().getSimpleName() + " stopping...");
+        sysLogger.debug(MarkerFactory.getMarker(LogMarker.CONTAINER), getClass().getSimpleName() + " <>stopping...");
         clean();
-        sysLogger.debug(MarkerFactory.getMarker(LogMarker.CONTAINER), getClass().getSimpleName() + " stop success.");
+        sysLogger.debug(MarkerFactory.getMarker(LogMarker.CONTAINER), getClass().getSimpleName() + " <>stop success.");
     }
 
     protected void init() {

@@ -29,13 +29,11 @@ public class SpringContextHolder implements ApplicationContextAware {
         return context.getBean(name, clz);
     }
     @Override
-    public void setApplicationContext(ApplicationContext ac)
-            throws BeansException {
+    public void setApplicationContext(ApplicationContext ac) throws BeansException {
         context = ac;
         //DefaultListableBeanFactory acf = (DefaultListableBeanFactory) app.getAutowireCapableBeanFactory();
         ConfigurableApplicationContext configurableApplicationContext = (ConfigurableApplicationContext) context;
-        beanDefinitonRegistry = (BeanDefinitionRegistry) configurableApplicationContext
-                .getBeanFactory();
+        beanDefinitonRegistry = (BeanDefinitionRegistry) configurableApplicationContext.getBeanFactory();
     }
     /**
      * 动态注册bean

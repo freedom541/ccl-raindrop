@@ -1,6 +1,7 @@
 package com.ccl.rain.client;
 
 import com.ccl.rain.annotation.RemotingFace;
+import com.ccl.rain.common.Configs;
 import com.ccl.rain.netty.client.RPCClient;
 import com.ccl.rain.netty.utils.classscan.ClassScanner;
 import org.slf4j.Logger;
@@ -20,17 +21,17 @@ public class RemotingFaceRegistry implements BeanDefinitionRegistryPostProcessor
     private RPCClient rpcClient;
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-        logger.info("**********************postProcessBeanDefinitionRegistry();");
+        logger.info("<><><><><><><><> postProcessBeanDefinitionRegistry();");
     }
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        logger.info("**********************postProcessBeanFactory();");
+        logger.info("<><><><><><><><> postProcessBeanFactory();");
         //Set<Class<?>> remoteServiceTypes = AnnotationScan.scanClasspath("com.ccl", RemotingFace.class);
         ClassScanner scanner = new ClassScanner();
         Set<Class<?>> remotingfacetypes = scanner.scan(new String[] {"com.ccl"}, RemotingFace.class);
 
-        rpcClient = new RPCClient("127.0.0.1:2181", remotingfacetypes);
+        rpcClient = new RPCClient(Configs.getString("zookeeper.server.host"), remotingfacetypes);
         for (Class<?> remoteService : remotingfacetypes) {
             if (remoteService.isInterface() && !containsBean(beanFactory, remoteService)) {
                 String beanName = getBeanName(remoteService.getSimpleName());
@@ -39,7 +40,7 @@ public class RemotingFaceRegistry implements BeanDefinitionRegistryPostProcessor
                     throw new RuntimeException(remoteService.getName() + " not found.");
                 }
                 beanFactory.registerSingleton(beanName, instance);
-                logger.info("**********************  registy class : " + remoteService.getName());
+                logger.info("<><><><><><><><> registy class : " + remoteService.getName());
             }
         }
     }

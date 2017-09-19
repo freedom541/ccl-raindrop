@@ -61,7 +61,7 @@
             <exclusions>
                 <exclusion>
                     <groupId>javax.servlet</groupId>
-                    <artifactId>*</artifactId>
+                    <artifactId>servlet-api</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>

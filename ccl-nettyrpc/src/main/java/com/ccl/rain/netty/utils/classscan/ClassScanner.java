@@ -59,7 +59,7 @@ public class ClassScanner {
                         }
                     }
                 } catch (Exception e) {
-                    logger.error("扫描提取[{}]包路径下，标记了注解[{}]的类出现异常", pattern, StringUtils.join(typeFilters,","));
+                    logger.error("############### 扫描提取[{}]包路径下，标记了注解[{}]的类出现异常", pattern, StringUtils.join(typeFilters,","));
                 }
             }
         }
@@ -90,7 +90,7 @@ public class ClassScanner {
                         return true;
                     }
                 } catch (IOException e) {
-                    logger.error("过滤匹配类型时出错 {}",e.getMessage());
+                    logger.error("############### 过滤匹配类型时出错 {}",e.getMessage());
                 }
             }
         }else {
