@@ -55,24 +55,24 @@ public class RPCServer implements BeanNameAware, BeanFactoryAware, ApplicationCo
 
     @Override
     public void setBeanName(String s) {
-        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setBeanName() {}", s);
+        logger.info("############### setBeanName() {}", s);
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setBeanFactory()");
+        logger.info("############### setBeanFactory()");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
-        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setApplicationContext()");
+        logger.info("############### setApplicationContext()");
         //扫描含有@RPCService的注解类
         Map<String, Object> serviceBeanMap = ctx.getBeansWithAnnotation(RemotingService.class);
         if (MapUtils.isNotEmpty(serviceBeanMap)) {
             for (Object serviceBean : serviceBeanMap.values()) {
                 //获取接口名称
                 String interfaceName = serviceBean.getClass().getAnnotation(RemotingService.class).value().getName();
-                logger.info("@RemotingFace:" + interfaceName);
+                logger.info("############### @RemotingFace:" + interfaceName);
                 //在zookeeper上注册该接口服务
                 serviceRegistry.createInterfaceAddressNode(interfaceName, serverAddress);
                 //本地保存该接口服务
@@ -85,7 +85,7 @@ public class RPCServer implements BeanNameAware, BeanFactoryAware, ApplicationCo
     //在实例被创建时执行，后续及是init-method
     //创建netty服务
     public void afterPropertiesSet() throws Exception {
-        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>afterPropertiesSet()");
+        logger.info("############### afterPropertiesSet()");
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {

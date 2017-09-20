@@ -73,7 +73,7 @@ public class RPCFuture implements Future<Object> {
             throw new RPCTimeoutException();
         }
         long useTime = System.currentTimeMillis() - startTime;
-        logger.info("request id: {} class: {} method: {} useTime {}ms",
+        logger.info("############### request id: {} class: {} method: {} useTime {}ms",
                 request.getRequestId(), request.getClassName(), request.getMethodName() , useTime);
         return response.getResult();
     }
@@ -89,7 +89,7 @@ public class RPCFuture implements Future<Object> {
             }
         }
         long useTime = System.currentTimeMillis() - startTime;
-        logger.info("has done requestId: {} class: {} method: {} useTime: {}",
+        logger.info("############### has done requestId: {} class: {} method: {} useTime: {}",
                 request.getRequestId(), request.getClassName(), request.getMethodName() , useTime);
     }
 

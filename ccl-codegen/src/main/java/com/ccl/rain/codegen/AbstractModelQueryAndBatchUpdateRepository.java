@@ -1,5 +1,6 @@
 package com.ccl.rain.codegen;
 
+import com.ccl.rain.common.Messages;
 import com.google.common.collect.Lists;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;

@@ -33,6 +33,13 @@ public class NettyRpcServer {
         ctx.refresh();
         server.setApplicationContext(ctx);
         server.afterPropertiesSet();
-        logger.info("rpc server start -- rpcAddr: " + rpcAddr);
+        logger.info("<><><><><><><><> rpc server start -- rpcAddr: " + rpcAddr);
+    }
+
+    public void start(AnnotationConfigWebApplicationContext ctx) throws Exception {
+        RPCServer server = new RPCServer(rpcAddr, zookeeperAddr);
+        server.setApplicationContext(ctx);
+        server.afterPropertiesSet();
+        logger.info("<><><><><><><><> rpc server start -- rpcAddr: " + rpcAddr);
     }
 }

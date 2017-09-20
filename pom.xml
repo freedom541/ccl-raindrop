@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>ccl-nettyRpc</module>
-        <module>ccl-Jettyserver</module>
+        <module>ccl-nettyrpc</module>
+        <module>ccl-jettyserver</module>
         <module>ccl-codegen</module>
-        <module>ccl-test-demo</module>
         <module>ccl-common</module>
+        <module>ccl-test-demo</module>
     </modules>
 
     <properties>
@@ -466,6 +466,11 @@
                 <version>3.1</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>21.0-rc2</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

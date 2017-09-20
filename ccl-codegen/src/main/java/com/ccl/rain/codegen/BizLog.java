@@ -1,5 +1,6 @@
 package com.ccl.rain.codegen;
 
+import com.ccl.rain.common.RequestHeaderUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

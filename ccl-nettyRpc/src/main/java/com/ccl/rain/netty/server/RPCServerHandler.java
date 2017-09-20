@@ -29,22 +29,22 @@ public class RPCServerHandler extends SimpleChannelInboundHandler<RPCRequest> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("rpc server channel active：" + ctx.channel().remoteAddress());
+        logger.info("############### rpc server channel active：" + ctx.channel().remoteAddress());
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        logger.info("rpc server channel inactive：" + ctx.channel().remoteAddress());
+        logger.info("############### rpc server channel inactive：" + ctx.channel().remoteAddress());
     }
 
 
     @Override
     public void channelRead0(final ChannelHandlerContext ctx, final RPCRequest request) throws Exception {
-        logger.info("rpc server channelRead0：" + ctx.channel().remoteAddress());
+        logger.info("############### rpc server channelRead0：" + ctx.channel().remoteAddress());
         RPCServer.submit(new Runnable() {
             @Override
             public void run() {
-                logger.info("receive request:" + request.getRequestId() +
+                logger.info("############### receive request:" + request.getRequestId() +
                         " className:" + request.getClassName() +
                         " methodName:" + request.getMethodName());
                 RPCResponse response = new RPCResponse();
@@ -76,7 +76,7 @@ public class RPCServerHandler extends SimpleChannelInboundHandler<RPCRequest> {
                 ctx.writeAndFlush(response).addListener(new ChannelFutureListener() {
                     @Override
                     public void operationComplete(ChannelFuture channelFuture) throws Exception {
-                        logger.info("send response for request: " + request.getRequestId());
+                        logger.info("############### send response for request: " + request.getRequestId());
                     }
                 });
             }
@@ -86,7 +86,7 @@ public class RPCServerHandler extends SimpleChannelInboundHandler<RPCRequest> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        logger.error("rpc server caught exception: " + ctx.channel().remoteAddress() + "|" + cause.getMessage());
+        logger.error("############### rpc server caught exception: " + ctx.channel().remoteAddress() + "|" + cause.getMessage());
         ctx.close();
     }
 }

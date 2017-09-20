@@ -40,7 +40,7 @@ public class AsyncRPCProxy<T> {
             parameterTypes[i] = getClassType(args[i]);
         }
         request.setParameterTypes(parameterTypes);
-        logger.info("invoke class: {} method: {}", this.clazz.getName(), funcName);
+        logger.info("############### invoke class: {} method: {}", this.clazz.getName(), funcName);
 
         RPCClientHandler handler = ConnectManage.getInstance().chooseHandler(this.clazz.getName());
         RPCFuture RPCFuture = handler.sendRequestByAsync(request, callback);

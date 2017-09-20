@@ -1,4 +1,4 @@
-package com.ccl.rain.codegen;
+package com.ccl.rain.common;
 
 import org.apache.commons.lang.StringUtils;
 

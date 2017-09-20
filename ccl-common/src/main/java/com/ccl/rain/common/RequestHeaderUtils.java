@@ -1,4 +1,4 @@
-package com.ccl.rain.codegen;
+package com.ccl.rain.common;
 
 import java.util.Map;
 

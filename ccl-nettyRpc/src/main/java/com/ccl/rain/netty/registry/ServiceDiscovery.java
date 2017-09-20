@@ -38,7 +38,7 @@ public class ServiceDiscovery {
     private Watcher rootWatcher = new Watcher() {
         @Override
         public void process(WatchedEvent watchedEvent) {
-            logger.info("#######" + watchedEvent.getPath() + " Watcher " + " process: " + watchedEvent);
+            logger.info("############### " + watchedEvent.getPath() + " Watcher " + " process: " + watchedEvent);
             if (watchedEvent.getType() == Event.EventType.NodeChildrenChanged) {
                 watchNode();
             }
@@ -48,7 +48,7 @@ public class ServiceDiscovery {
     private Watcher childdrenWatcher = new Watcher() {
         @Override
         public void process(WatchedEvent watchedEvent) {
-            logger.info("#######" + watchedEvent.getPath() + " Watcher " + " process: " + watchedEvent);
+            logger.info("############### " + watchedEvent.getPath() + " Watcher " + " process: " + watchedEvent);
             if (watchedEvent.getType() == Event.EventType.NodeChildrenChanged) {
                 watchNode();
             }
@@ -57,7 +57,7 @@ public class ServiceDiscovery {
 
     private void watchNode() {
         try {
-            logger.info("invoke watchNode() ");
+            logger.info("############### invoke watchNode() ");
             List<String> interfaceList = zookeeper.getChildren(Config.ZK_ROOT_PATH, rootWatcher);
             Set<String> dataSet = new HashSet<String>();
             Map<String, Set<InetSocketAddress>> interfaceAndServerMap = new HashMap<String, Set<InetSocketAddress>>();
@@ -77,9 +77,9 @@ public class ServiceDiscovery {
                     interfaceAndServerMap.put(face, set);
                 }
             }
-            logger.info("node data: {}", dataSet);
-            logger.info("interfaceAndServerMap data: {}", interfaceAndServerMap);
-            logger.info("Service discovery triggered updating connected server node");
+            logger.info("############### node data: {}", dataSet);
+            logger.info("############### interfaceAndServerMap data: {}", interfaceAndServerMap);
+            logger.info("############### Service discovery triggered updating connected server node");
             //更新连接服务
             ConnectManage.getInstance().updateConnectedServer(dataSet, interfaceAndServerMap);
         } catch (Exception e) {
@@ -99,7 +99,7 @@ public class ServiceDiscovery {
             zookeeper = new ZooKeeper(address, Config.ZK_SESSION_TIMEOUT, new Watcher() {
                 @Override
                 public void process(WatchedEvent event) {
-                    logger.info("#######default Watcher" + Config.ZK_ROOT_PATH + " watched node process: " + event);
+                    logger.info("############### default Watcher" + Config.ZK_ROOT_PATH + " watched node process: " + event);
                     if (event.getState() == Event.KeeperState.SyncConnected) {
                         latch.countDown();
                     }

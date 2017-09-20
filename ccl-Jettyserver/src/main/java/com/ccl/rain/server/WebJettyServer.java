@@ -12,6 +12,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,6 +79,12 @@ public class WebJettyServer {
             if (Objects.isNull(config)){
                 config = new ApplicationConfig();
             }
+            //打开日志,便于调试
+            if (!config.isRegistered(LoggingFilter.class))
+                config.register(LoggingFilter.class);
+            if (!config.isRegistered(RequestContextFilter.class))
+                config.register(RequestContextFilter.class);
+
             ServletHolder sh = new ServletHolder(new ServletContainer(config));
 
             ServletContextHandler servletContext = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -123,12 +130,12 @@ public class WebJettyServer {
             server.setHandler(contexts);//6.server添加上下文
 
             server.start();
-            logger.info("jetty server is start ================================================================");
-            logger.info("jetty server is start ================================================================");
+            logger.info("<><><><><><><><><><><><><><>><><><> jetty server is start <><><><><><><><><><><><><><><><><><><><><> ");
+            logger.info("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><> ");
             AliveKeeping.start();
 
             NettyRpcServer rpcServer = new NettyRpcServer(rpcAddr);
-            rpcServer.start();
+            rpcServer.start(springContext);
             //logger.info("netty rpc server is start...........................");
 
             //server.join();

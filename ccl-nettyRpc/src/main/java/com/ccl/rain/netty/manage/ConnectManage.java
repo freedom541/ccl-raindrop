@@ -96,7 +96,7 @@ public class ConnectManage {
                 RPCClientHandler handler = connectedHandlerList.get(i);
                 InetSocketAddress socketAddress = handler.getSocketAddress();
                 if (!newServerNodeSet.contains(socketAddress)) {
-                    logger.info("remove and close invalid server node: " + socketAddress);
+                    logger.info("############### remove and close invalid server node: " + socketAddress);
                     handler.close();
                     connectedHandlerList.remove(handler);
                     connectedHandlerMap.remove(socketAddress);
@@ -142,21 +142,21 @@ public class ConnectManage {
                 interfaceAndHandlersMap.put(key, handlers);
             }
 
-            logger.info("current connectedHandlerList: {}", connectedHandlerList);
-            logger.info("current connectedHandlerMap: {}", connectedHandlerMap);
-            logger.info("current interfaceAndHandlersMap: {}", interfaceAndHandlersMap);
+            logger.info("############### current connectedHandlerList: {}", connectedHandlerList);
+            logger.info("############### current connectedHandlerMap: {}", connectedHandlerMap);
+            logger.info("############### current interfaceAndHandlersMap: {}", interfaceAndHandlersMap);
 
 
         } else {
-            logger.error("no available server node. all server nodes are down !!!");
+            logger.error("############### no available server node. all server nodes are down !!!");
             for (RPCClientHandler handler : connectedHandlerList) {
-                logger.info("remove invalid server node: " + handler.getSocketAddress());
+                logger.info("############### remove invalid server node: " + handler.getSocketAddress());
                 handler.close();//关闭和服务器的连接
             }
             connectedHandlerList.clear();
             connectedHandlerMap.clear();
             interfaceAndHandlersMap.clear();
-            logger.error("connectedHandlerList connectedHandlerMap interfaceAndHandlersMap has bean cleared!!!");
+            logger.error("############### connectedHandlerList connectedHandlerMap interfaceAndHandlersMap has bean cleared!!!");
         }
     }
 
@@ -167,7 +167,7 @@ public class ConnectManage {
      * @param remote
      */
     private void connectServerNode(final InetSocketAddress remote) {
-        logger.info("start connect to remote server: {}", remote);
+        logger.info("############### start connect to remote server: {}", remote);
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(eventLoopGroup)
                 .channel(NioSocketChannel.class)
@@ -185,12 +185,12 @@ public class ConnectManage {
                             @Override
                             public void handlerCallback(RPCClientHandler handler, boolean isActive) {
                                 if (isActive) {
-                                    logger.info("Active: " + handler.getSocketAddress());
+                                    logger.info("############### Active: " + handler.getSocketAddress());
                                     connectedHandlerList.add(handler);
                                     connectedHandlerMap.put(handler.getSocketAddress(), handler);
                                     countDownLatch.countDown();
                                 } else {
-                                    logger.error("Inactive: " + handler.getSocketAddress());
+                                    logger.error("############### Inactive: " + handler.getSocketAddress());
                                 }
                             }
                         });
@@ -200,10 +200,10 @@ public class ConnectManage {
             @Override
             public void operationComplete(final ChannelFuture channelFuture) throws Exception {
                 if (channelFuture.isSuccess()) {
-                    logger.info("success connect to remote server: {}", remote);
+                    logger.info("############### success connect to remote server: {}", remote);
                 } else {
                     //不停的重连
-                    logger.info("failed connect to remote server: {} will reconnect {} millseconds later", remote, reconnectTime);
+                    logger.info("############### failed connect to remote server: {} will reconnect {} millseconds later", remote, reconnectTime);
                     channelFuture.channel().eventLoop().schedule(new Runnable() {
                         @Override
                         public void run() {

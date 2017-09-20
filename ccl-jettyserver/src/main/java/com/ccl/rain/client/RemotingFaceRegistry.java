@@ -17,7 +17,7 @@ import java.util.Set;
  * Created by ccl on 17/8/31.
  */
 public class RemotingFaceRegistry implements BeanDefinitionRegistryPostProcessor {
-    private static final Logger logger = LoggerFactory.getLogger(BeanDefinitionRegistryPostProcessor.class);
+    private static final Logger logger = LoggerFactory.getLogger(RemotingFaceRegistry.class);
     private RPCClient rpcClient;
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {

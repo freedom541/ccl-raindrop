@@ -104,7 +104,7 @@ public class ServiceRegistry {
             }
             String path = zooKeeper.create(Config.ZK_ROOT_PATH + "/" + interfaceName + "/" + serverAddress,
                     serverAddress.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
-            logger.info("create zookeeper interface address node (path:{})", path);
+            logger.info("############### create zookeeper interface address node (path:{})", path);
         } catch (KeeperException e) {
             logger.error("", e);
         } catch (InterruptedException ex) {
