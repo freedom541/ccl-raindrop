@@ -72,7 +72,7 @@ public class RPCServer implements BeanNameAware, BeanFactoryAware, ApplicationCo
             for (Object serviceBean : serviceBeanMap.values()) {
                 //获取接口名称
                 String interfaceName = serviceBean.getClass().getAnnotation(RemotingService.class).value().getName();
-                logger.info("############### @RemotingFace:" + interfaceName);
+                logger.info("####------------->> @RemotingFace:" + interfaceName);
                 //在zookeeper上注册该接口服务
                 serviceRegistry.createInterfaceAddressNode(interfaceName, serverAddress);
                 //本地保存该接口服务

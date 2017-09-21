@@ -78,7 +78,7 @@ public class ServiceDiscovery {
                 }
             }
             logger.info("############### node data: {}", dataSet);
-            logger.info("############### interfaceAndServerMap data: {}", interfaceAndServerMap);
+            logger.info("####----------->> interfaceAndServerMap data: {}", interfaceAndServerMap);
             logger.info("############### Service discovery triggered updating connected server node");
             //更新连接服务
             ConnectManage.getInstance().updateConnectedServer(dataSet, interfaceAndServerMap);
