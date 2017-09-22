@@ -7,5 +7,5 @@ import com.ccl.rain.annotation.RemotingFace;
  */
 @RemotingFace
 public interface HelloService {
-    String say();
+    String say(String name);
 }
